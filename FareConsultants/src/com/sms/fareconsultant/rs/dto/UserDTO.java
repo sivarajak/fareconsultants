@@ -4,6 +4,8 @@ public class UserDTO {
 	
 	private long id;
 	
+	private String userName;
+	
 	private String firstname;
     
     private String lastname;
@@ -12,10 +14,19 @@ public class UserDTO {
     	
     }
     
-    public UserDTO(String firstName, String lastName) {
+    public UserDTO(String userName, String firstName, String lastName) {
+    	this.userName = userName;
         this.firstname = firstName;
         this.lastname = lastName;
     }
+    
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	
 	/**
 	 * @return the id

@@ -10,14 +10,14 @@ public interface IUserBO {
 	
 	UserDTO findById(long id);
 	
+	UserDTO findByUserName(String userName);
+	
 	boolean isUserExist(UserDTO userDTO);
 	
 	void saveUser(UserDTO userDTO);
 	
-	void updateUser(UserDTO userDTO);
+	UserDTO updateUser(UserDTO userDTO);
 	
 	void deleteUserById(long id);
-	
-	void deleteAllUsers();
 
 }

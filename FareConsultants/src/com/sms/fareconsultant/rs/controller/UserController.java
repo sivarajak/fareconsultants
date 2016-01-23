@@ -16,7 +16,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.sms.fareconsultant.rs.bo.IUserBO;
 import com.sms.fareconsultant.rs.dto.UserDTO;
-import com.sms.fareconsultant.rs.model.User;
 
 @RestController
 public class UserController {
@@ -26,7 +25,7 @@ public class UserController {
 	
 	//-------------------Retrieve All Users--------------------------------------------------------
     
-    @RequestMapping(value = "/user/", method = RequestMethod.GET)
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<List<UserDTO>> listAllUsers() {
         List<UserDTO> users = userBO.findAllUsers();
         if(users.isEmpty()){
@@ -53,7 +52,7 @@ public class UserController {
      
     //-------------------Create a User--------------------------------------------------------
      
-    @RequestMapping(value = "/user/", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@RequestBody UserDTO user,    UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + user.getFirstName());
  
@@ -82,11 +81,8 @@ public class UserController {
             System.out.println("User with id " + id + " not found");
             return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);
         }
- 
-        currentUser.setFirstName(user.getFirstName());
-        currentUser.setLastName(user.getLastName());
          
-        userBO.updateUser(currentUser);
+        userBO.updateUser(user);
         return new ResponseEntity<UserDTO>(currentUser, HttpStatus.OK);
     }
  
@@ -104,17 +100,6 @@ public class UserController {
  
         userBO.deleteUserById(id);
         return new ResponseEntity<UserDTO>(HttpStatus.NO_CONTENT);
-    }
- 
-     
-    //------------------- Delete All Users --------------------------------------------------------
-     
-    @RequestMapping(value = "/user/", method = RequestMethod.DELETE)
-    public ResponseEntity<User> deleteAllUsers() {
-        System.out.println("Deleting All Users");
- 
-        userBO.deleteAllUsers();
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
  
 }

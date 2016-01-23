@@ -9,7 +9,9 @@ public class User {
     @Id
     private long id;
     
-    private String firstname;
+    private String userName;
+
+	private String firstname;
     
     private String lastname;
     
@@ -17,10 +19,20 @@ public class User {
     	
     }
     
-    public User(String firstName, String lastName) {
+    public User(String userName, String firstName, String lastName) {
+    	this.userName = userName;
         this.firstname = firstName;
         this.lastname = lastName;
     }
+    
+    
+    public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
     
     /**
 	 * @return the id

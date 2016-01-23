@@ -9,5 +9,7 @@ import com.sms.fareconsultant.rs.model.User;
 public interface UserRepository extends MongoRepository<User, String> {
 	
 	User findById(long id);
+	
+	User findByUserName(String userName);
 
 }
