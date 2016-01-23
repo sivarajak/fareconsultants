@@ -52,8 +52,8 @@ public class UserController {
      
     //-------------------Create a User--------------------------------------------------------
      
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody UserDTO user,    UriComponentsBuilder ucBuilder) {
+    @RequestMapping(value = "/user", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> createUser(@RequestBody UserDTO user) {
         System.out.println("Creating User " + user.getFirstName());
  
         if (userBO.isUserExist(user)) {
@@ -64,7 +64,7 @@ public class UserController {
         userBO.saveUser(user);
  
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
+        //headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
  

@@ -17,7 +17,8 @@ import com.mongodb.MongoClient;
 @EnableMongoRepositories("com.sms.fareconsultant.rs.repository")
 public class AppConfig {
 	
-	public @Bean MongoDbFactory getMongoDbFactory() throws Exception {
+	@Bean
+	public MongoDbFactory getMongoDbFactory() throws Exception {
         return new SimpleMongoDbFactory(new MongoClient("localhost",27017), "fareconsultants");
     }
 	

@@ -11,9 +11,9 @@ public class User {
     
     private String userName;
 
-	private String firstname;
+	private String firstName;
     
-    private String lastname;
+    private String lastName;
     
     public User() {
     	
@@ -21,8 +21,8 @@ public class User {
     
     public User(String userName, String firstName, String lastName) {
     	this.userName = userName;
-        this.firstname = firstName;
-        this.lastname = lastName;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
     
     
@@ -52,27 +52,27 @@ public class User {
 	 * @return the firstName
 	 */
 	public String getFirstName() {
-		return firstname;
+		return firstName;
 	}
 	
 	/**
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
-		this.firstname = firstName;
+		this.firstName = firstName;
 	}
 	
 	/**
 	 * @return the lastName
 	 */
 	public String getLastName() {
-		return lastname;
+		return lastName;
 	}
 	
 	/**
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
-		this.lastname = lastName;
+		this.lastName = lastName;
 	}
 }
